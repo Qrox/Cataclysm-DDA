@@ -55,8 +55,12 @@ jobs:
               }
             );
             comments.reverse();
-            const bot_comments = comments.filter(comment => comment.user.type === 'Bot' && comment.user.login === 'github-actions[bot]');
-            if (bot_comments.length > 0 && bot_comments[0].body === body) {
+            const bot_comments = comments.filter(
+              comment => comment.user.type === 'Bot'
+              && comment.user.login === 'github-actions[bot]'
+              && comment.body === body
+            );
+            if (bot_comments.length > 0) {
               console.log("Comment already exists.  Exiting.");
               return;
             }
