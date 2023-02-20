@@ -186,7 +186,7 @@ static void InitSDL()
 #endif
 
 #if defined(SDL_HINT_IME_SUPPORT_EXTENDED_TEXT)
-    // Support long IME composition text
+    // Requires SDL 2.0.22. Support long IME composition text.
     SDL_SetHint( SDL_HINT_IME_SUPPORT_EXTENDED_TEXT, "1" );
 #endif
 
@@ -2532,9 +2532,8 @@ bool is_string_input( input_context &ctx )
 {
     std::string &category = ctx.get_category();
     return category == "STRING_INPUT"
-           || category == "HELP_KEYBINDINGS"
-           || category == "NEW_CHAR_DESCRIPTION"
-           || category == "WORLDGEN_CONFIRM_DIALOG";
+           || category == "STRING_EDITOR"
+           || category == "HELP_KEYBINDINGS";
 }
 
 int get_key_event_from_string( const std::string &str )
