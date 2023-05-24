@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - request-review
+name: Test request review
+permissions:
+  contents: read
+
+jobs:
+  test-request-review:
+    if: github.repository == 'Qrox/Cataclysm-DDA'
+    name: Test request review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "// foobar" > src/ui_manager.cpp
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Foobar
+          branch: test-request-review
+          base: request-review
+          token: ${{ secrets.TEST_REQUEST_REVIEW }}
+          title: Test
+          body: Test
