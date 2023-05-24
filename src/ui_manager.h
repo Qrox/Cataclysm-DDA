@@ -7,6 +7,7 @@
 #include "cuboid_rectangle.h"
 #include "point.h"
 
+// foobar
 namespace catacurses
 {
 class window;
