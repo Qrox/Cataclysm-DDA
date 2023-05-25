@@ -1,3 +1,5 @@
+# Foobar
+
 # Enable some categories of checks and then disable individual ones.
 # The disabled checks that appear as part of the initial alphabetical section
 # enabling categories (e.g. cert-err58-cpp) are ones that do not make sense for
