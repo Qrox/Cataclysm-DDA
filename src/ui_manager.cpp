@@ -1,4 +1,4 @@
-#include "ui_manager.h"
+#include "ui_manager.h" // foobar
 
 #include <functional>
 #include <iterator>

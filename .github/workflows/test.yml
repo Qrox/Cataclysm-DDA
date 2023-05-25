@@ -1,0 +1,23 @@
+name: Create PR
+
+on:
+  push:
+    branches: [request-review-test-pr-2]
+
+jobs:
+  create-pr:
+    if: github.repository == 'Qrox/Cataclysm-DDA'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6.3.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN}}
+          script: |
+            await github.rest.pulls.create({
+              owner: 'Qrox',
+              repo: 'Cataclysm-DDA',
+              head: 'request-review-test-pr-2',
+              base: 'request-review-test-base',
+              title: 'Test',
+              body: 'Test',
+            });
